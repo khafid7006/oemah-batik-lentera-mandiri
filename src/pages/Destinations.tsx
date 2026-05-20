@@ -3,6 +3,19 @@ import { motion } from 'motion/react';
 import { useData } from '../context/DataContext';
 import { MapPin, Compass, ArrowRight } from 'lucide-react';
 
+const ImageWithFade: React.FC<{ src: string; alt: string; className?: string }> = ({ src, alt, className = "" }) => {
+  const [loaded, setLoaded] = React.useState(false);
+  return (
+    <img 
+      src={src} 
+      alt={alt} 
+      onLoad={() => setLoaded(true)}
+      className={`${className} transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+      referrerPolicy="no-referrer"
+    />
+  );
+};
+
 const Destinations: React.FC = () => {
   const { destinations, siteInfo } = useData();
 
@@ -100,13 +113,14 @@ const Destinations: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="rounded-[2.5rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-700">
-              <img 
-                src={siteInfo.destinationImageUrl || "https://picsum.photos/seed/travel/800/1000"} 
-                alt="Wisata Desa" 
-                className="w-full h-auto object-cover"
-                referrerPolicy="no-referrer"
-              />
+            <div className="rounded-[2.5rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-700 bg-batik-cream/50 aspect-[4/5]">
+              {siteInfo.destinationImageUrl && (
+                <ImageWithFade 
+                  src={siteInfo.destinationImageUrl} 
+                  alt="Wisata Desa" 
+                  className="w-full h-full object-cover"
+                />
+              )}
             </div>
           </div>
         </div>

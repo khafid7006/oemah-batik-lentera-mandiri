@@ -4,8 +4,21 @@ import ArticleCard from '../components/ArticleCard';
 import { CheckCircle2 } from 'lucide-react';
 import { useData } from '../context/DataContext';
 
+const ImageWithFade: React.FC<{ src: string; alt: string; className?: string }> = ({ src, alt, className = "" }) => {
+  const [loaded, setLoaded] = React.useState(false);
+  return (
+    <img 
+      src={src} 
+      alt={alt} 
+      onLoad={() => setLoaded(true)}
+      className={`${className} transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+      referrerPolicy="no-referrer"
+    />
+  );
+};
+
 const Education: React.FC = () => {
-  const { articles } = useData();
+  const { articles, siteInfo } = useData();
   const steps = [
     { title: 'Nyungging', desc: 'Membuat pola di atas kertas.' },
     { title: 'Njaplak', desc: 'Memindahkan pola dari kertas ke kain.' },
@@ -106,13 +119,14 @@ const Education: React.FC = () => {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div className="order-2 lg:order-1">
-              <img 
-                src="https://picsum.photos/seed/batik-types/800/800" 
-                alt="Jenis Batik" 
-                className="rounded-[3rem] shadow-2xl" 
-                referrerPolicy="no-referrer"
-              />
+            <div className="order-2 lg:order-1 bg-batik-cream/50 rounded-[3rem] overflow-hidden shadow-2xl aspect-square">
+              {siteInfo.ctaImageUrl && (
+                <ImageWithFade 
+                  src={siteInfo.ctaImageUrl} 
+                  alt="Jenis Batik" 
+                  className="w-full h-full object-cover" 
+                />
+              )}
             </div>
             <div className="order-1 lg:order-2 space-y-8">
               <h2 className="text-4xl font-bold text-batik-brown">Jenis-Jenis Batik</h2>

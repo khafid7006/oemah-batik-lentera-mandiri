@@ -3,6 +3,19 @@ import { motion } from 'motion/react';
 import { History, Target, Heart, Award } from 'lucide-react';
 import { useData } from '../context/DataContext';
 
+const ImageWithFade: React.FC<{ src: string; alt: string; className?: string }> = ({ src, alt, className = "" }) => {
+  const [loaded, setLoaded] = React.useState(false);
+  return (
+    <img 
+      src={src} 
+      alt={alt} 
+      onLoad={() => setLoaded(true)}
+      className={`${className} transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+      referrerPolicy="no-referrer"
+    />
+  );
+};
+
 const About: React.FC = () => {
   const { siteInfo } = useData();
   const values = [
@@ -94,12 +107,28 @@ const About: React.FC = () => {
               className="grid grid-cols-2 gap-4"
             >
               <div className="space-y-4">
-                <img src={siteInfo.aboutImage2Url || "https://picsum.photos/seed/about1/400/600"} alt="Batik 1" className="rounded-3xl w-full aspect-[2/3] object-cover shadow-lg" referrerPolicy="no-referrer" />
-                <img src={siteInfo.aboutImage3Url || "https://picsum.photos/seed/about2/400/400"} alt="Batik 2" className="rounded-3xl w-full aspect-square object-cover shadow-lg" referrerPolicy="no-referrer" />
+                <div className="rounded-3xl w-full aspect-[2/3] bg-batik-cream/50 overflow-hidden shadow-lg">
+                  {siteInfo.aboutImage2Url && (
+                    <ImageWithFade src={siteInfo.aboutImage2Url} alt="Batik 1" className="w-full h-full object-cover" />
+                  )}
+                </div>
+                <div className="rounded-3xl w-full aspect-square bg-batik-cream/50 overflow-hidden shadow-lg">
+                  {siteInfo.aboutImage3Url && (
+                    <ImageWithFade src={siteInfo.aboutImage3Url} alt="Batik 2" className="w-full h-full object-cover" />
+                  )}
+                </div>
               </div>
               <div className="space-y-4 pt-12">
-                <img src={siteInfo.aboutImage4Url || "https://picsum.photos/seed/about3/400/400"} alt="Batik 3" className="rounded-3xl w-full aspect-square object-cover shadow-lg" referrerPolicy="no-referrer" />
-                <img src={siteInfo.ctaImageUrl || "https://picsum.photos/seed/about4/400/600"} alt="Batik 4" className="rounded-3xl w-full aspect-[2/3] object-cover shadow-lg" referrerPolicy="no-referrer" />
+                <div className="rounded-3xl w-full aspect-square bg-batik-cream/50 overflow-hidden shadow-lg">
+                  {siteInfo.aboutImage4Url && (
+                    <ImageWithFade src={siteInfo.aboutImage4Url} alt="Batik 3" className="w-full h-full object-cover" />
+                  )}
+                </div>
+                <div className="rounded-3xl w-full aspect-[2/3] bg-batik-cream/50 overflow-hidden shadow-lg">
+                  {siteInfo.ctaImageUrl && (
+                    <ImageWithFade src={siteInfo.ctaImageUrl} alt="Batik 4" className="w-full h-full object-cover" />
+                  )}
+                </div>
               </div>
             </motion.div>
           </div>

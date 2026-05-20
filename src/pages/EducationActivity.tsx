@@ -5,8 +5,21 @@ import ActivityCard from '../components/ActivityCard';
 import { Sparkles, Camera, MapPin } from 'lucide-react';
 import { WhatsAppButton } from '../components/WhatsAppButtons';
 
+const ImageWithFade: React.FC<{ src: string; alt: string; className?: string }> = ({ src, alt, className = "" }) => {
+  const [loaded, setLoaded] = React.useState(false);
+  return (
+    <img 
+      src={src} 
+      alt={alt} 
+      onLoad={() => setLoaded(true)}
+      className={`${className} transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+      referrerPolicy="no-referrer"
+    />
+  );
+};
+
 const EducationActivity: React.FC = () => {
-  const { activities } = useData();
+  const { activities, siteInfo } = useData();
 
   return (
     <div className="pt-24 min-h-screen bg-batik-cream">
@@ -98,13 +111,14 @@ const EducationActivity: React.FC = () => {
               </div>
             </motion.div>
             <div className="relative">
-              <div className="aspect-square rounded-[3rem] overflow-hidden shadow-2xl">
-                <img 
-                  src="https://picsum.photos/seed/workshop-hero/1000/1000" 
-                  className="w-full h-full object-cover" 
-                  alt="Workshop" 
-                  referrerPolicy="no-referrer"
-                />
+              <div className="aspect-square rounded-[3rem] overflow-hidden shadow-2xl bg-batik-cream/50">
+                {siteInfo.aboutImageUrl && (
+                  <ImageWithFade 
+                    src={siteInfo.aboutImageUrl} 
+                    className="w-full h-full object-cover" 
+                    alt="Workshop" 
+                  />
+                )}
               </div>
               <div className="absolute -bottom-10 -right-10 bg-batik-gold p-12 rounded-[3rem] shadow-2xl hidden sm:block">
                 <p className="text-batik-dark font-serif text-3xl font-bold italic leading-tight">"Belajar <br /> Dengan Hati"</p>

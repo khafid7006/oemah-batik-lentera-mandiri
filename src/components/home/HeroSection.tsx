@@ -6,6 +6,7 @@ import { useData } from '../../context/DataContext';
 
 const HeroSection: React.FC = () => {
   const { siteInfo } = useData();
+  const [imageLoaded, setImageLoaded] = React.useState(false);
 
   const scrollToNext = () => {
     window.scrollTo({
@@ -15,15 +16,20 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0c0a09]">
       {/* Background with Cinematic Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src={siteInfo.heroImageUrl || "https://fastly.picsum.photos/id/355/1920/1080.jpg?hmac=zWnl6aMHvU06IvXa6EA_ZMtQLeKOWAtqyRz4M7vX9cM"} 
-          alt="Batik Background" 
-          className="w-full h-full object-cover scale-105"
-          referrerPolicy="no-referrer"
-        />
+      <div className="absolute inset-0 z-0 bg-[#0c0a09]">
+        {siteInfo.heroImageUrl && (
+          <img 
+            src={siteInfo.heroImageUrl} 
+            alt="Batik Background" 
+            onLoad={() => setImageLoaded(true)}
+            className={`w-full h-full object-cover scale-105 transition-opacity duration-1000 ${
+              imageLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+            referrerPolicy="no-referrer"
+          />
+        )}
         {/* Cinematic Gradient: Dark Top -> Transparent Middle -> Light Bottom */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/40 via-80% to-batik-cream md:from-black/80 md:via-black/20 md:to-batik-cream shadow-inner" />
       </div>

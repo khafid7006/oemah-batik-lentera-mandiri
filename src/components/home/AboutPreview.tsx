@@ -4,6 +4,19 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useData } from '../../context/DataContext';
 
+const ImageWithFade: React.FC<{ src: string; alt: string; className?: string }> = ({ src, alt, className = "w-full h-full object-cover" }) => {
+  const [loaded, setLoaded] = React.useState(false);
+  return (
+    <img 
+      src={src} 
+      alt={alt} 
+      onLoad={() => setLoaded(true)}
+      className={`${className} transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+      referrerPolicy="no-referrer"
+    />
+  );
+};
+
 const AboutPreview: React.FC = () => {
   const { siteInfo } = useData();
 
@@ -21,13 +34,13 @@ const AboutPreview: React.FC = () => {
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-batik-gold/10 rounded-full blur-3xl" />
           <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-batik-gold/5 rounded-full blur-3xl" />
           
-          <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl z-10">
-            <img 
-              src={siteInfo.aboutImageUrl || "https://picsum.photos/seed/about-preview/800/1000"} 
-              alt="Sejarah Batik Oemah Batik" 
-              className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
-            />
+          <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl z-10 bg-batik-cream/50">
+            {siteInfo.aboutImageUrl && (
+              <ImageWithFade 
+                src={siteInfo.aboutImageUrl} 
+                alt="Sejarah Batik Oemah Batik" 
+              />
+            )}
           </div>
           
           <div className="absolute -bottom-8 -left-8 bg-batik-gold p-10 rounded-[2rem] shadow-2xl z-20 hidden md:block">
