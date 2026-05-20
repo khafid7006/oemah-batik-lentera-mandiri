@@ -69,7 +69,7 @@ const Login: React.FC = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 className="w-full pl-12 pr-6 py-4 bg-batik-cream rounded-2xl border-none focus:ring-2 focus:ring-batik-gold text-batik-dark"
-                placeholder="admin@batik.com"
+                placeholder="example@lentera.com"
               />
             </div>
           </div>
