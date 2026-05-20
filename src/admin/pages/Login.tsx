@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { Flame, Mail, Lock, LogIn, Loader2 } from 'lucide-react';
+import { Mail, Lock, LogIn, Loader2 } from 'lucide-react';
 import { motion } from 'motion/react';
+import logoUrl from './1logo.png';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -41,8 +42,12 @@ const Login: React.FC = () => {
         className="bg-white w-full max-w-md rounded-[2.5rem] shadow-2xl p-10 relative z-10 border border-batik-brown/5"
       >
         <div className="text-center mb-10">
-          <div className="bg-batik-dark w-16 h-16 rounded-3xl flex items-center justify-center text-batik-gold mx-auto mb-6 shadow-xl">
-            <Flame size={32} />
+          <div className="mx-auto mb-6 flex justify-center">
+            <img 
+              src={logoUrl} 
+              alt="Oemah Batik Lentera Mandiri Logo" 
+              className="w-28 h-28 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.06)]"
+            />
           </div>
           <h1 className="font-serif text-3xl font-bold text-batik-brown mb-2">Admin Dashboard</h1>
           <p className="text-batik-brown/50 text-sm">Masuk untuk mengelola konten website</p>
