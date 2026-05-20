@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+
+  --color-batik-brown: #5d4037;
+  --color-batik-cream: #f5f5f0;
+  --color-batik-gold: #d4af37;
+  --color-batik-dark: #1a1a1a;
+  
+  --radius-xl: 32px;
+}
+
+@layer base {
+  body {
+    @apply bg-batik-cream text-batik-dark font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+.batik-pattern {
+  background-image: url("https://www.transparenttextures.com/patterns/batik.png");
+  opacity: 0.05;
+}
+
+.pill-image {
+  border-radius: 9999px;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+}
+
+.card-cultural {
+  @apply bg-white rounded-xl shadow-sm border border-batik-brown/10 overflow-hidden transition-all duration-300 hover:shadow-md;
+}
