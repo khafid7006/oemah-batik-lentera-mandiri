@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Flame, MessageCircle } from 'lucide-react';
+import { Menu, X, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { WhatsAppLink } from './WhatsAppButtons';
 import { useData } from '../context/DataContext';
+
+const FALLBACK_LOGO = "/images/logo/oemah-batik-logo.png";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,15 +57,14 @@ const Navbar: React.FC = () => {
                   alt={`Logo ${siteInfo.siteName}`}
                   className="h-10 sm:h-12 w-auto object-contain"
                   referrerPolicy="no-referrer"
-                  onError={(e) => {
-                    console.warn("Navbar logo failed to load:", siteInfo.logoUrl);
-                    e.currentTarget.style.display = "none";
-                  }}
+                  onError={(e) => { e.currentTarget.src = FALLBACK_LOGO; }}
                 />
               ) : (
-                <div className="bg-batik-brown p-2 rounded-full text-batik-gold flex items-center justify-center">
-                  <Flame size={24} />
-                </div>
+                <img
+                  src={FALLBACK_LOGO}
+                  alt={`Logo ${siteInfo.siteName}`}
+                  className="h-10 sm:h-12 w-auto object-contain"
+                />
               )}
             </motion.div>
             <div className="flex flex-col">

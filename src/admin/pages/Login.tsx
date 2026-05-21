@@ -43,7 +43,7 @@ const Login: React.FC = () => {
         <div className="text-center mb-10">
           <div className="mx-auto mb-6 flex justify-center">
             <img 
-              src="/images/logo/1logo.png" 
+              src="/images/logo/oemah-batik-logo.png" 
               alt="Oemah Batik Lentera Mandiri Logo" 
               className="w-28 h-28 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.06)]"
             />

@@ -15,10 +15,11 @@ const Footer: React.FC = () => {
             <Link to="/" className="flex items-center space-x-3 mb-6 group">
               <div className="relative animate-fadeIn">
                 <img 
-                  src={siteInfo.footerLogoUrl || siteInfo.logoUrl} 
+                  src={siteInfo.footerLogoUrl || siteInfo.logoUrl || "/images/logo/oemah-batik-logo.png"} 
                   alt={`Logo ${siteInfo.siteName}`} 
                   className="h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
                   referrerPolicy="no-referrer"
+                  onError={(e) => { e.currentTarget.src = "/images/logo/oemah-batik-logo.png"; }}
                 />
               </div>
               <div className="flex flex-col">
