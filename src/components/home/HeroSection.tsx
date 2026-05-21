@@ -6,7 +6,6 @@ import { useData } from '../../context/DataContext';
 
 const HeroSection: React.FC = () => {
   const { siteInfo } = useData();
-  const [imageLoaded, setImageLoaded] = React.useState(false);
 
   const scrollToNext = () => {
     window.scrollTo({
@@ -16,17 +15,14 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0c0a09]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background with Cinematic Overlay */}
-      <div className="absolute inset-0 z-0 bg-[#0c0a09]">
+      <div className="absolute inset-0 z-0">
         {siteInfo.heroImageUrl && (
           <img 
             src={siteInfo.heroImageUrl} 
             alt="Batik Background" 
-            onLoad={() => setImageLoaded(true)}
-            className={`w-full h-full object-cover scale-105 transition-opacity duration-1000 ${
-              imageLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
+            className="w-full h-full object-cover scale-105"
             referrerPolicy="no-referrer"
           />
         )}
