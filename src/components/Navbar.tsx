@@ -48,21 +48,23 @@ const Navbar: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               className="relative transition-transform"
             >
-              <img 
-                src={siteInfo.logoUrl} 
-                alt={`Logo ${siteInfo.siteName}`} 
-                className="h-10 sm:h-12 w-auto object-contain"
-                onError={(e) => {
-                  // Fallback to old icon if image fails to load
-                  (e.target as HTMLImageElement).style.display = 'none';
-                  const fb = (e.target as HTMLImageElement).nextElementSibling as HTMLElement;
-                  if (fb) fb.style.display = 'flex';
-                }}
-                referrerPolicy="no-referrer"
-              />
-              <div className="hidden bg-batik-brown p-2 rounded-full text-batik-gold items-center justify-center">
-                <Flame size={24} />
-              </div>
+              {siteInfo.logoUrl ? (
+                <img
+                  key={siteInfo.logoUrl}
+                  src={siteInfo.logoUrl}
+                  alt={`Logo ${siteInfo.siteName}`}
+                  className="h-10 sm:h-12 w-auto object-contain"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    console.warn("Navbar logo failed to load:", siteInfo.logoUrl);
+                    e.currentTarget.style.display = "none";
+                  }}
+                />
+              ) : (
+                <div className="bg-batik-brown p-2 rounded-full text-batik-gold flex items-center justify-center">
+                  <Flame size={24} />
+                </div>
+              )}
             </motion.div>
             <div className="flex flex-col">
               <span className="font-serif text-lg sm:text-xl font-bold text-batik-brown leading-none">
