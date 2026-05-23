@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { useData } from '../context/DataContext';
-import { MapPin, Compass, ArrowRight } from 'lucide-react';
+import { MapPin, Compass, ArrowRight, Search } from 'lucide-react';
+import DestinationModal from '../components/DestinationModal';
+import { Destination } from '../services/destinationsService';
 
 const ImageWithFade: React.FC<{ src: string; alt: string; className?: string }> = ({ src, alt, className = "" }) => {
   const [loaded, setLoaded] = React.useState(false);
@@ -18,6 +20,7 @@ const ImageWithFade: React.FC<{ src: string; alt: string; className?: string }> 
 
 const Destinations: React.FC = () => {
   const { destinations, siteInfo } = useData();
+  const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null);
 
   return (
     <div className="pt-24 min-h-screen bg-batik-cream">
@@ -50,7 +53,8 @@ const Destinations: React.FC = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="group"
+              className="group cursor-pointer"
+              onClick={() => setSelectedDestination(dest)}
             >
               <div className="relative aspect-[16/10] rounded-[2.5rem] overflow-hidden shadow-2xl mb-8">
                 <img 
@@ -60,10 +64,15 @@ const Destinations: React.FC = () => {
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-batik-dark/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
-                <div className="absolute bottom-8 left-8 right-8">
+                <div className="absolute inset-0 bg-batik-dark/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                   <div className="p-4 bg-batik-gold text-batik-dark rounded-full shadow-xl transform scale-50 group-hover:scale-110 transition-all duration-500">
+                    <Search size={26} strokeWidth={2.4} />
+                   </div>
+                </div>
+                <div className="absolute bottom-8 left-8 right-8 z-10">
                   <div className="flex items-center space-x-2 text-batik-gold mb-2">
                     <MapPin size={16} />
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Petahunan, Banyumas</span>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.2em]">{dest.location || 'Petahunan, Banyumas'}</span>
                   </div>
                   <h3 className="text-2xl font-serif font-bold text-white uppercase tracking-wider">{dest.title}</h3>
                 </div>
@@ -73,7 +82,7 @@ const Destinations: React.FC = () => {
                   <Compass size={20} />
                   <span className="font-bold text-sm uppercase tracking-widest">{dest.activity}</span>
                 </div>
-                <p className="text-batik-dark/70 text-lg leading-relaxed">
+                <p className="text-batik-dark/70 text-lg leading-relaxed line-clamp-2">
                   {dest.description}
                 </p>
                 <div className="pt-4 border-t border-batik-brown/5">
@@ -125,6 +134,9 @@ const Destinations: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Destination Detail Modal */}
+      <DestinationModal destination={selectedDestination} onClose={() => setSelectedDestination(null)} />
     </div>
   );
 };

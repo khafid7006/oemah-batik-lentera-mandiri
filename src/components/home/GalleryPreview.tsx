@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Eye } from 'lucide-react';
+import { ArrowRight, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useData } from '../../context/DataContext';
 
@@ -49,7 +49,7 @@ const GalleryPreview: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-batik-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                    <Link to="/galeri" className="p-4 bg-batik-gold text-batik-dark rounded-full shadow-xl transform scale-50 group-hover:scale-110 transition-all duration-500">
-                    <Eye size={26} strokeWidth={2.2} />
+                    <Search size={26} strokeWidth={2.4} />
                    </Link>
                 </div>
               </div>

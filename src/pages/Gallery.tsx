@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { GalleryItem } from '../data/batikData';
 import BatikCard from '../components/BatikCard';
 import ImageModal from '../components/ImageModal';
-import { Search, Filter, MessageCircle } from 'lucide-react';
+import { Search, Filter } from 'lucide-react';
 import { useData } from '../context/DataContext';
 
 const Gallery: React.FC = () => {
@@ -132,13 +132,10 @@ const Gallery: React.FC = () => {
                         </div>
                       )}
                       <button 
-                        onClick={() => {
-                          const msg = encodeURIComponent(`Halo, saya tertarik dengan produk Batik: ${item.title}`);
-                          window.open(`https://wa.me/${siteInfo.whatsapp}?text=${msg}`, '_blank');
-                        }}
+                        onClick={() => setSelectedItem(item)}
                         className="w-full mt-4 bg-batik-dark text-batik-cream py-4 rounded-xl font-bold uppercase tracking-widest text-[10px] hover:bg-batik-gold hover:text-batik-dark transition-all flex items-center justify-center group"
                       >
-                        <MessageCircle size={16} className="mr-2 group-hover:scale-110" /> Order via WhatsApp
+                        <Search size={18} strokeWidth={2.4} className="mr-2 group-hover:scale-110" /> Detail Product
                       </button>
                     </div>
                   </motion.div>
