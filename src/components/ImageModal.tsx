@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, MessageCircle } from 'lucide-react';
+import { X, Search } from 'lucide-react';
 import { GalleryItem } from '../data/batikData';
-import { WhatsAppButton } from './WhatsAppButtons';
 
 interface ImageModalProps {
   item: GalleryItem | null;
@@ -57,11 +56,24 @@ const ImageModal: React.FC<ImageModalProps> = ({ item, onClose }) => {
               </p>
 
               <div className="mb-8">
-                <WhatsAppButton 
-                  label="Pesan Produk Ini"
-                  message={`Halo, saya tertarik dengan produk "${item.title}" yang ada di galeri website. Bisa minta info harganya?`}
-                  className="w-full"
-                />
+                <button
+                  onClick={() => {
+                    onClose();
+                    setTimeout(() => {
+                      const gallerySection = document.getElementById('gallery-section');
+                      if (gallerySection) {
+                        gallerySection.scrollIntoView({
+                          behavior: 'smooth',
+                          block: 'start'
+                        });
+                      }
+                    }, 200);
+                  }}
+                  className="w-full bg-black text-white py-5 rounded-full font-bold uppercase tracking-widest text-sm flex items-center justify-center gap-3 shadow-xl transition-all duration-300 ease-out hover:bg-batik-gold hover:text-batik-dark hover:scale-[1.02] group"
+                >
+                  <Search size={20} strokeWidth={2.4} className="group-hover:scale-110 transition-transform" />
+                  Lihat Koleksi Lain
+                </button>
               </div>
               
               <div className="mt-auto pt-8 border-t border-batik-brown/10">

@@ -18,7 +18,7 @@ const ActivityPreview: React.FC = () => {
     {
       icon: <Users size={32} />,
       title: 'Kunjungan Wisata',
-      desc: 'Menerima tamu rombongan untuk studi budaya banyumasan.'
+      desc: 'Menerima tamu rombongan untuk studi budaya batik.'
     }
   ];
 
@@ -42,7 +42,7 @@ const ActivityPreview: React.FC = () => {
               transition={{ delay: 0.1 }}
               className="text-4xl sm:text-5xl font-serif font-bold text-batik-cream"
             >
-              Aktivitas Berbasis Budaya
+              Pelestarian Karya Seni Batik
             </motion.h2>
           </div>
           <motion.div

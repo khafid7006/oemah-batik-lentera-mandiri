@@ -8,7 +8,7 @@ const GalleryPreview: React.FC = () => {
   const { gallery } = useData();
 
   return (
-    <section className="py-32 bg-batik-cream overflow-hidden">
+    <section id="gallery-section" className="py-32 bg-batik-cream overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20 space-y-4">
           <motion.span 

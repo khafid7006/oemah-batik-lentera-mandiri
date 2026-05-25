@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
               </div>
             </Link>
             <p className="text-[12px] text-batik-cream/50 leading-relaxed italic font-serif">
-              "{siteInfo.motto || 'Goresan Canting Lestarikan Warisan Budaya'}"
+              "Goresan Canting Melestarikan Budaya"
             </p>
           </div>
 

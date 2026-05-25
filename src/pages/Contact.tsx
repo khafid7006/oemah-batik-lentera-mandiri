@@ -44,29 +44,28 @@ const Contact: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#f6f4ef]">
       {/* Upper Ivory Section */}
-      <div className="bg-[#f6f4ef] pt-28 pb-12">
+      <div className="bg-[#f6f4ef] pt-12 pb-4">
         {/* Header Section */}
-        <section className="pb-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center border-b border-[#e5dfd3]/80">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-[40px] sm:text-[48px] font-serif text-batik-brown mb-5 font-medium tracking-wide leading-tight"
+            className="text-4xl sm:text-6xl font-serif font-bold text-batik-brown mb-6"
           >
             Kontak Kami
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-            className="text-[#6c5a4b] text-[13px] sm:text-[14px] max-w-2xl mx-auto leading-relaxed font-sans"
+            transition={{ delay: 0.1 }}
+            className="text-batik-dark/70 text-lg max-w-3xl mx-auto"
           >
             Hubungi kami untuk pemesanan produk, pendaftaran workshop edukasi, atau kordinasi kunjungan ke Desa Wisata Petahunan.
           </motion.p>
         </section>
 
         {/* Main Contact Section */}
-        <section className="pt-16 pb-8 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        <section className="pb-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
             {/* Left Column: Contact Details */}
@@ -195,9 +194,27 @@ const Contact: React.FC = () => {
       </div>
 
       {/* Lower White Section */}
-      <div className="bg-white py-20">
+      <div className="bg-white pt-16 pb-20">
         {/* Map Section */}
         <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+          {/* Section Heading */}
+          <div className="text-center mb-8">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl sm:text-4xl font-serif font-bold text-batik-brown tracking-wide mb-3"
+            >
+              Lokasi Kami
+            </motion.h2>
+            <motion.div 
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="w-16 h-0.5 bg-batik-gold mx-auto"
+            />
+          </div>
+
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

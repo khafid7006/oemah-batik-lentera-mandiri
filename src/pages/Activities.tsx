@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { useData } from '../context/DataContext';
-import { CheckCircle2, ShoppingBag, MessageCircle } from 'lucide-react';
+import { CheckCircle2, Search, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Activities: React.FC = () => {
@@ -97,14 +97,14 @@ const Activities: React.FC = () => {
         </div>
         <div className="max-w-4xl mx-auto text-center relative z-10 space-y-10">
           <h2 className="text-3xl sm:text-5xl font-serif font-bold text-batik-cream leading-tight">
-            Ingin merasakan pengalaman <br /> membatik di workshop kami?
+            Ingin melihat hasil karya kami?
           </h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link 
               to="/gallery" 
               className="w-full sm:w-auto bg-batik-gold text-batik-dark px-10 py-5 rounded-2xl font-bold uppercase tracking-widest text-sm hover:bg-batik-cream transition-all shadow-xl flex items-center justify-center group"
             >
-              <ShoppingBag size={18} className="mr-3 group-hover:scale-110 transition-transform" />
+              <Search size={18} className="mr-3 group-hover:scale-110 transition-transform" />
               Lihat Galeri Produk
             </Link>
             <button 

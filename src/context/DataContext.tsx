@@ -99,7 +99,7 @@ interface DataContextType {
 const DataContext = createContext<DataContextType | undefined>(undefined);
 
 const INITIAL_SITE_INFO: SiteInfo = {
-  motto: "Melestarikan Batik Banyumasan melalui Edukasi dan Aktivitas Budaya",
+  motto: "Melestarikan Batik melalui Edukasi dan Aktivitas Budaya",
   philosophy: "UMKM batik yang berkembang sebagai ruang belajar, pelestari tradisi, dan bagian dari potensi wisata Desa Petahunan.",
   description: "Oemah Batik Lentera Mandiri hadir bukan sekadar sebagai tempat produksi, melainkan sebagai pusat edukasi and pemberdayaan masyarakat melalui pelestarian seni batik secara mandiri.",
   address: "RT.03/RW.02, Petahunan, Pekuncen, Banyumas Regency, Central Java 53164",

@@ -45,7 +45,7 @@ const AboutPreview: React.FC = () => {
           
           <div className="absolute -bottom-8 -left-8 bg-batik-gold p-10 rounded-[2rem] shadow-2xl z-20 hidden md:block">
             <p className="text-batik-dark font-serif text-3xl font-bold italic leading-tight">
-              Sejak <br /> 2012
+              Sejak <br /> 2025
             </p>
           </div>
         </motion.div>

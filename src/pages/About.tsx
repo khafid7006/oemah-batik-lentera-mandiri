@@ -37,7 +37,7 @@ const About: React.FC = () => {
     {
       icon: <Award size={32} />,
       title: 'Motto',
-      description: `"${siteInfo.motto}" — Menjadi penerang bagi pelestarian budaya Banyumasan secara mandiri.`
+      description: `"${siteInfo.motto}" — Menjadi mentor bagi pelestarian karya seni Batik.`
     }
   ];
 

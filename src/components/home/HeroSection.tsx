@@ -39,7 +39,7 @@ const HeroSection: React.FC = () => {
           className="space-y-8"
         >
           <span className="inline-block text-batik-gold font-bold text-[10px] sm:text-xs uppercase tracking-[0.5em] bg-black/20 py-3 px-8 rounded-full border border-white/10 backdrop-blur-md shadow-2xl">
-            Wastra Nusantara • Sejak 2012
+            Wastra Nusantara • Sejak 2025
           </span>
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold text-white leading-tight drop-shadow-2xl">
             {siteInfo.motto}
