@@ -118,7 +118,7 @@ const INITIAL_SITE_INFO: SiteInfo = {
   aboutImage4Url: "",
   destinationImageUrl: "",
   ctaImageUrl: "",
-  mapsUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15822.427670693574!2d109.0733877!3d-7.4646706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e656046e7f8303f%3A0x64e4024f2ca3beee!2sPetahunan%2C%20Pekuncen%2C%20Banyumas%20Regency%2C%20Central%20Java!5e0!3m2!1sen!2sid!4v1714107572000!5m2!1sen!2sid",
+  mapsUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d909.3479729130166!2d109.04360143685872!3d-7.3737363499749815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e656351633f1bd9%3A0x8e265727ee3832c4!2sOemah%20Batik%20Lentera%20Mandiri!5e1!3m2!1sen!2sid!4v1779719310094!5m2!1sen!2sid",
   openingHours: "Senin - Sabtu: 08:00 - 17:00 (Minggu Libur)"
 };
 
